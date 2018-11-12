@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.12.4";
+document.getElementById("id_business_version").innerHTML = "Business version: ES6 2018.11.12.5";
 document.getElementById("id_button").addEventListener("click", video);
 document.getElementById("id_video").addEventListener("touchstart", on_touch);
 document.getElementById("id_video").addEventListener("mousedown", on_touch);
