@@ -1,4 +1,4 @@
-document.getElementById("id_bussiness_version").innerHTML="Bussiness version: 2018.10.22.0";
+document.getElementById("id_business_version").innerHTML="Business version: 2018.10.22.0";
 document.getElementById("id_button").addEventListener("click",rezolva);
 
 function t_ec2()

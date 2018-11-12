@@ -1,4 +1,4 @@
-document.getElementById("id_bussiness_version").innerHTML = "Bussiness version: 2018.11.05.3";
+document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.05.3";
 window.addEventListener("deviceorientation", on_device_orientation);
 window.addEventListener("devicemotion", on_device_motion);
 
