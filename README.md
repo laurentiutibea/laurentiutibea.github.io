@@ -1,2 +1,2 @@
 # laurentiutibea.github.io
-_personal_ "test" website
+Computer Science student.
