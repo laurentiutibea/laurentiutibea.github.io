@@ -17,6 +17,7 @@ class Camera {
     }
     change(){
         this.front ? this.front = false: this.front = true;
+        $("id_video").load("");
         this.start();
     }
     stop(){
