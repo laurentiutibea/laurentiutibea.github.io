@@ -8,7 +8,7 @@ document.getElementById("id_video").addEventListener("mousedown", on_touch);
 function video(){
     let frontCam = true;
     let c = {};
-    if(frontCam == true) {
+    if(frontCam === true) {
         c = {audio: true, video: {facingMode: "environment"}};
         frontCam=false;
     }
