@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-document.getElementById("id_business_version").innerHTML = "Business version: ES6 2018.11.12.8";
+document.getElementById("id_business_version").innerHTML = "Business version: ES6 2018.11.12.9";
 
 class Camera {
     constructor(front){
@@ -7,6 +7,8 @@ class Camera {
     }
     start(){
         this.c = {audio: true, video: {facingMode: (this.front === true? "user" : "environment")}};
+        this.e.getVideoTracks()[0].stop();
+        this.e.getAudioTracks()[0].stop();
         navigator.mediaDevices.getUserMedia(this.c)
             .then( (e) => {
                 this.e = e;
@@ -19,11 +21,13 @@ class Camera {
     change(){
         this.front ? this.front = false: this.front = true;
         this.e.getVideoTracks()[0].stop();
+        this.e.getAudioTracks()[0].stop();
         this.start();
     }
     stop(){
         this.c = {audio: false, video: false};
         this.e.getVideoTracks()[0].stop();
+        this.e.getAudioTracks()[0].stop();
     }
     snap(){
         let canvas = document.getElementById("id_canvas");
