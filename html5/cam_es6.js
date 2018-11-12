@@ -7,8 +7,15 @@ document.getElementById("id_video").addEventListener("mousedown", on_touch);
 
 function video(){
     let frontCam = true;
-    if(frontCam === true) {let c = {audio: true, video: {facingMode: "environment"}}; frontCam=false;}
-    else {let c = {audio: true, video: {facingMode: "user"}}; frontCam=true;}
+    let c = {};
+    if(frontCam == true) {
+        c = {audio: true, video: {facingMode: "environment"}};
+        frontCam=false;
+    }
+    else {
+        c = {audio: true, video: {facingMode: "user"}};
+        frontCam=true;
+    }
     navigator.mediaDevices.getUserMedia(c)
         .then( (e) => {
             document.getElementById("id_video").srcObject = e;
