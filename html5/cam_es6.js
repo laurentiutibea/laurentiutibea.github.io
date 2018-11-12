@@ -7,8 +7,6 @@ class Camera {
     }
     start(){
         this.c = {audio: true, video: {facingMode: (this.front === true? "user" : "environment")}};
-        this.e.getVideoTracks()[0].stop();
-        this.e.getAudioTracks()[0].stop();
         navigator.mediaDevices.getUserMedia(this.c)
             .then( (e) => {
                 this.e = e;
