@@ -1,68 +1,41 @@
 /* eslint-disable linebreak-style */
-document.getElementById("id_business_version").innerHTML = "Business version: ES6 2018.11.12.5";
-
-document.getElementById("id_video").addEventListener("touchstart", on_touch);
-document.getElementById("id_video").addEventListener("mousedown", on_touch);
+document.getElementById("id_business_version").innerHTML = "Business version: ES6 2018.11.12.6";
 
 class Camera {
-    constructor(){
-        this.front = false;
+    constructor(front){
+        this.front = front;
     }
     start(){
-        console.log("inceput");
-        this.c = {audio: true, video: {facingMode: (this.front? "user" : "environment")}};
-        console.log(this.front);
-        this.front = true;
+        this.c = {audio: true, video: {facingMode: (this.front === true? "user" : "environment")}};
         navigator.mediaDevices.getUserMedia(this.c)
             .then( (e) => {
                 document.getElementById("id_video").srcObject = e;
-                console.log("then");
             })
             .catch( () => {
                 alert("Cannot read camera");
             });
-        console.log("GATA");
+    }
+    change(){
+        this.front ? this.front = false: this.front = true;
     }
     stop(){
         this.c = {audio: false, video: false};
         document.getElementById("id_video").pause();
     }
+    snap(){
+        let canvas = document.getElementById("id_canvas");
+        let context = canvas.getContext("2d");
+        let video = document.getElementById("id_video");
+
+        context.drawImage(video, 0, 0);
+    }
 }
 
-let cam = new Camera();
-
-document.getElementById("id_button").addEventListener("click", cam.start);
-document.getElementById("id_change").addEventListener("click", cam.start);
-document.getElementById("id_stop").addEventListener("click", cam.stop);
-
-/*let c = {};
-let front = false;
-function video(){
+let cam = new Camera(false);
 
 
-    c = {audio: true, video: {facingMode: (front? "user" : "environment")}};
-    console.log("ELSE");
-    navigator.mediaDevices.getUserMedia(c)
-        .then( (e) => {
-            document.getElementById("id_video").srcObject = e;
-            console.log("then");
-        })
-        .catch( () => {
-            alert("Cannot read camera");
-        });
-    front = !front;
-}
-
-function video_stop(){
-    c = {audio: false, video: false};
-}*/
-
-function on_touch()
-{
-    let canvas = document.getElementById("id_canvas");
-    let context = canvas.getContext("2d");
-    let video = document.getElementById("id_video");
-
-    context.drawImage(video, 0, 0);
-}
-
+document.getElementById("id_button").addEventListener("click", cam.start.bind(cam));
+document.getElementById("id_change").addEventListener("click", cam.change.bind(cam));
+document.getElementById("id_stop").addEventListener("click", cam.stop.bind(cam));
+document.getElementById("id_video").addEventListener("touchstart", cam.snap.bind(cam));
+document.getElementById("id_video").addEventListener("mousedown", cam.snap.bind(cam));
