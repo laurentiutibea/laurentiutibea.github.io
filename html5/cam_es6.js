@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-document.getElementById("id_business_version").innerHTML = "Business version: ES6 2018.11.12.6";
+document.getElementById("id_business_version").innerHTML = "Business version: ES6 2018.11.12.7";
 
 class Camera {
     constructor(front){
@@ -17,6 +17,7 @@ class Camera {
     }
     change(){
         this.front ? this.front = false: this.front = true;
+        this.start();
     }
     stop(){
         this.c = {audio: false, video: false};
