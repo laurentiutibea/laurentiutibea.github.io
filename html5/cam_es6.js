@@ -17,7 +17,7 @@ function video(){
 }
 
 function video_front(){
-    let c = {audio: true, video: {facingMode: "user"}};
+    let c = {audio: true, video: true};
     navigator.mediaDevices.getUserMedia(c)
         .then( (e) => {
             document.getElementById("id_video").srcObject = e;
