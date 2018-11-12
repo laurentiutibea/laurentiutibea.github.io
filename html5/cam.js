@@ -15,7 +15,7 @@ function video(){
         });
 }*/
 
-document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.12.3";
+document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.12.4";
 document.getElementById("id_button").addEventListener("click", start);
 document.getElementById("id_video").addEventListener("touchstart", on_touch);
 document.getElementById("id_video").addEventListener("mousedown", on_touch);
@@ -33,7 +33,7 @@ function on_failure(e)
 //------------------------------
 function start()
 {
-    var c = {audio: true, video: {facingMode: "user"}};
+    var c = {audio: true, video: {facingMode: "environment"}};
     navigator.mediaDevices.getUserMedia(c).then(on_success).catch(on_failure);
 }
 //------------------------------
