@@ -4,8 +4,11 @@ document.getElementById("id_business_version").innerHTML = "Business version: ES
 class Camera {
     constructor(front){
         this.front = front;
+        document.getElementById("id_stop").disabled = true;
     }
     start(){
+        document.getElementById("id_start").disabled = true;
+        document.getElementById("id_stop").disabled = false;
         this.c = {audio: true, video: {facingMode: (this.front === true? "user" : "environment")}};
         navigator.mediaDevices.getUserMedia(this.c)
             .then( (e) => {
@@ -23,6 +26,8 @@ class Camera {
         this.start();
     }
     stop(){
+        document.getElementById("id_start").disabled = false;
+        document.getElementById("id_stop").disabled = true;
         this.c = {audio: false, video: false};
         this.e.getVideoTracks()[0].stop();
         this.e.getAudioTracks()[0].stop();
@@ -39,7 +44,7 @@ class Camera {
 let cam = new Camera(false);
 
 
-document.getElementById("id_button").addEventListener("click", cam.start.bind(cam));
+document.getElementById("id_start").addEventListener("click", cam.start.bind(cam));
 document.getElementById("id_change").addEventListener("click", cam.change.bind(cam));
 document.getElementById("id_stop").addEventListener("click", cam.stop.bind(cam));
 document.getElementById("id_video").addEventListener("touchstart", cam.snap.bind(cam));
