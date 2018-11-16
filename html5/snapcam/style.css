@@ -22,7 +22,6 @@ h1{
 #id_video{
     width: 400px;
     height: 400px;
-    transform: rotateY(180deg);
     display: block;
     margin: auto;
 }
@@ -50,6 +49,5 @@ h1{
 
 #id_photos img{
     display: block;
-    transform: rotateY(180deg);
     margin:auto;
 }
