@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cam</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <p>UI Version: 2018.11.16.1</p>
+    <p id="id_business_version"></p>
+
+    <h1>SnapCam</h1>
+
+    <div id="top_container">
+        <video src="" id="id_video" autoplay>Video tag is not supported</video>
+        <button id="id_start" class="btn">Start</button>
+        <button id="id_change" class="btn">Change Camera</button>
+        <button id="id_photo" class="btn">Take Photo</button>
+        <select id="id_filter" class="select">
+            <option value="none">Normal</option>
+            <option value="grayscale(100%)">Grayscale</option>
+            <option value="sepia(100%)">Sepia</option>
+            <option value="invert(100%)">Invert</option>
+            <option value="hue-rotate(90deg)">Hue</option>
+            <option value="blur(10px)">Blur</option>
+            <option value="contrast(200)">Contrast</option>
+        </select>
+        <button id="id_clear" class="btn">Clear</button>
+        <button id="id_stop" class="btn">Stop</button>
+    </div>
+    <canvas width = "400" height = "400" id ="id_canvas">Canvas tag is not supported</canvas>
+    <div id="photos_container">
+        <div id="id_photos"></div>
+    </div>
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script src="cam_es6.js"></script>
+</body>
+</html>

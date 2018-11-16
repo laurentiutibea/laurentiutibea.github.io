@@ -1,0 +1,55 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden;
+}
+
+#id_canvas{
+    display: none;
+}
+
+h1{
+    text-align: center;
+}
+
+#top_container{
+    width: 70%;
+    overflow: auto;
+    margin: auto;
+}
+
+#id_video{
+    width: 400px;
+    height: 400px;
+    transform: rotateY(180deg);
+    display: block;
+    margin: auto;
+}
+
+.select{
+    display: block;
+    width: 50%;
+    margin: auto;
+}
+
+.select option{
+    text-align: center;
+}
+
+.btn{
+    display: block;
+    width:50%;
+    margin: auto;
+}
+
+#photos_container{
+    width: 70%;
+    margin:auto;
+}
+
+#id_photos img{
+    display: block;
+    transform: rotateY(180deg);
+    margin:auto;
+}
