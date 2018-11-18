@@ -1,5 +1,5 @@
 /* eslint-disable linebreak-style */
-document.getElementById("id_business_version").innerHTML = "Business version: ES6 2018.11.16.1";
+document.getElementById("id_business_version").innerHTML = "Business version: ES6 2018.11.16.2";
 
 class Camera {
     constructor(front){
@@ -42,7 +42,7 @@ class Camera {
         let canvas = document.getElementById("id_canvas");
         let context = canvas.getContext("2d");
 
-        context.drawImage(this.video, 0, 0, 400, 300);
+        context.drawImage(this.video, 0, 0);
 
         const imgUrl = canvas.toDataURL("image/png");
         const img = document.createElement("img");
