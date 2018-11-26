@@ -10,6 +10,7 @@ function randomColor(){
     for(let i=0; i<6 ; i++){
         s = s + litere[Math.floor(Math.random() * 16)];
     }
+    return s;
 }
 
 canvas.addEventListener("touchstart", (e) => {
