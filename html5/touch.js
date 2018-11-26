@@ -1,4 +1,4 @@
-document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.26.8";
+document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.26.9";
 let canvas  = document.getElementById("id_canvas");
 let canvas_bounding_rect = canvas.getBoundingClientRect();
 
@@ -14,6 +14,7 @@ canvas.addEventListener("touchstart", (e) => {
             e.changedTouches[i].pageX - canvas_bounding_rect.left,
             e.changedTouches[i].pageY - canvas_bounding_rect.top,
             10, 0, 2*Math.PI);
+        context.fill();
         context.stroke();
         let last_pos = {x: e.changedTouches[i].pageX, y: e.changedTouches[i].pageY, id: e.changedTouches[i].identifier};
         last_pos_array.push(last_pos);
@@ -35,6 +36,7 @@ canvas.addEventListener("touchmove", (e) => {
         context.lineTo(
             e.changedTouches[i].pageX - canvas_bounding_rect.left,
             e.changedTouches[i].pageY - canvas_bounding_rect.top,);
+        context.fill();
         context.stroke();
         context.beginPath();
         context.fillStyle = "#000";
@@ -43,6 +45,7 @@ canvas.addEventListener("touchmove", (e) => {
             e.changedTouches[i].pageX - canvas_bounding_rect.left,
             e.changedTouches[i].pageY - canvas_bounding_rect.top,
             10, 0, 2*Math.PI);
+        context.fill();
         context.stroke();
         last_pos_array[j].x = e.changedTouches[i].pageX;
         last_pos_array[j].y = e.changedTouches[i].pageY;
