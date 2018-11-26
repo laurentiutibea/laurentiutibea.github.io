@@ -1,4 +1,4 @@
-document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.26.4";
+document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.26.5";
 let canvas  = document.getElementById("id_canvas");
 let canvas_bounding_rect = canvas.getBoundingClientRect();
 
