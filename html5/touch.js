@@ -1,23 +1,36 @@
-document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.26.9";
+document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.26.10";
 let canvas  = document.getElementById("id_canvas");
 let canvas_bounding_rect = canvas.getBoundingClientRect();
 
 let last_pos_array = [];
+
+function randomColor(){
+    let litere = "0123456789ABCDEF";
+    let s = "#";
+    for(let i=0; i<6 ; i++){
+        s = s + litere[Math.floor(Math.random() * 16)];
+    }
+}
 
 canvas.addEventListener("touchstart", (e) => {
     e.preventDefault();
     for(let i = 0; i < e.changedTouches.length; i++){
         let context = canvas.getContext("2d");
         context.beginPath();
-        context.fillStyle = "#000";
+        let last_pos = {
+            x: e.changedTouches[i].pageX,
+            y: e.changedTouches[i].pageY,
+            id: e.changedTouches[i].identifier,
+            color: randomColor()};
+        last_pos_array.push(last_pos);
+        context.fillStyle = last_pos_array[length-1].color;
+        context.strokeStyle = last_pos_array[length-1].color;
         context.arc(
             e.changedTouches[i].pageX - canvas_bounding_rect.left,
             e.changedTouches[i].pageY - canvas_bounding_rect.top,
             10, 0, 2*Math.PI);
         context.fill();
         context.stroke();
-        let last_pos = {x: e.changedTouches[i].pageX, y: e.changedTouches[i].pageY, id: e.changedTouches[i].identifier};
-        last_pos_array.push(last_pos);
     }
 });
 
@@ -28,7 +41,8 @@ canvas.addEventListener("touchmove", (e) => {
         for(; j < last_pos_array.length; j++) if(last_pos_array[j].id === e.changedTouches[i].identifier) break;
         let context = canvas.getContext("2d");
         context.beginPath();
-        context.fillStyle = "#000";
+        context.fillStyle = last_pos_array[j].color;
+        context.strokeStyle = last_pos_array[j].color;
         context.lineWidth = 20;
         context.moveTo(
             last_pos_array[j].x - canvas_bounding_rect.left,
@@ -39,7 +53,8 @@ canvas.addEventListener("touchmove", (e) => {
         context.fill();
         context.stroke();
         context.beginPath();
-        context.fillStyle = "#000";
+        context.fillStyle = last_pos_array[j].color;
+        context.strokeStyle = last_pos_array[j].color;
         context.lineWidth = 1;
         context.arc(
             e.changedTouches[i].pageX - canvas_bounding_rect.left,
