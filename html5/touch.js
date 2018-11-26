@@ -1,4 +1,4 @@
-document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.26.2";
+document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.26.3";
 let canvas  = document.getElementById("id_canvas");
 let canvas_bounding_rect = canvas.getBoundingClientRect();
 
@@ -15,6 +15,7 @@ canvas.addEventListener("touchstart", (e) => {
 });
 
 canvas.addEventListener("touchmove", (e) => {
+    e.preventDefault();
     for(let i = 0; i < e.changedTouches.length; i++){
         let context = canvas.getContext("2d");
         context.beginPath();
