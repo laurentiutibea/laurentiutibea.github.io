@@ -1,4 +1,4 @@
-document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.26.7";
+document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.26.8";
 let canvas  = document.getElementById("id_canvas");
 let canvas_bounding_rect = canvas.getBoundingClientRect();
 
@@ -9,6 +9,7 @@ canvas.addEventListener("touchstart", (e) => {
     for(let i = 0; i < e.changedTouches.length; i++){
         let context = canvas.getContext("2d");
         context.beginPath();
+        context.fillStyle = "#000";
         context.arc(
             e.changedTouches[i].pageX - canvas_bounding_rect.left,
             e.changedTouches[i].pageY - canvas_bounding_rect.top,
@@ -26,6 +27,7 @@ canvas.addEventListener("touchmove", (e) => {
         for(; j < last_pos_array.length; j++) if(last_pos_array[j].id === e.changedTouches[i].identifier) break;
         let context = canvas.getContext("2d");
         context.beginPath();
+        context.fillStyle = "#000";
         context.lineWidth = 20;
         context.moveTo(
             last_pos_array[j].x - canvas_bounding_rect.left,
@@ -35,6 +37,7 @@ canvas.addEventListener("touchmove", (e) => {
             e.changedTouches[i].pageY - canvas_bounding_rect.top,);
         context.stroke();
         context.beginPath();
+        context.fillStyle = "#000";
         context.lineWidth = 1;
         context.arc(
             e.changedTouches[i].pageX - canvas_bounding_rect.left,
