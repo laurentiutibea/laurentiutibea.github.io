@@ -43,11 +43,12 @@ h1{
 }
 
 #photos_container{
-    width: 70%;
+    width: 100%;
     margin:auto;
 }
 
 #id_photos img{
     display: block;
+    width: 100%;
     margin:auto;
 }
