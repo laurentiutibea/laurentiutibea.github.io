@@ -1,10 +1,11 @@
-document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.26.6";
+document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.26.7";
 let canvas  = document.getElementById("id_canvas");
 let canvas_bounding_rect = canvas.getBoundingClientRect();
 
 let last_pos_array = [];
 
 canvas.addEventListener("touchstart", (e) => {
+    e.preventDefault();
     for(let i = 0; i < e.changedTouches.length; i++){
         let context = canvas.getContext("2d");
         context.beginPath();
@@ -42,5 +43,14 @@ canvas.addEventListener("touchmove", (e) => {
         context.stroke();
         last_pos_array[j].x = e.changedTouches[i].pageX;
         last_pos_array[j].y = e.changedTouches[i].pageY;
+    }
+});
+
+canvas.addEventListener("touchend", (e) => {
+    e.preventDefault();
+    for(let i = 0; i < e.changedTouches.length; i++) {
+        let j = 0;
+        for(; j < last_pos_array.length; j++) if(last_pos_array[j].id === e.changedTouches[i].identifier) break;
+        last_pos_array.splice(j, 1);
     }
 });
