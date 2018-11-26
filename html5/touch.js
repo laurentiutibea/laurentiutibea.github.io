@@ -8,7 +8,7 @@ function randomColor(){
     let litere = "0123456789ABCDEF";
     let s = "#";
     for(let i=0; i<6 ; i++){
-        s = s + litere(Math.floor(Math.random() * 16));
+        s = s + litere[Math.floor(Math.random() * 16)];
     }
 }
 
