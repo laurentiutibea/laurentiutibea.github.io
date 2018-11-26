@@ -1,4 +1,4 @@
-document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.26.10";
+document.getElementById("id_business_version").innerHTML = "Business version: 2018.11.26.11";
 let canvas  = document.getElementById("id_canvas");
 let canvas_bounding_rect = canvas.getBoundingClientRect();
 
@@ -8,7 +8,7 @@ function randomColor(){
     let litere = "0123456789ABCDEF";
     let s = "#";
     for(let i=0; i<6 ; i++){
-        s = s + litere[Math.floor(Math.random() * 16)];
+        s = s + litere(Math.floor(Math.random() * 16));
     }
 }
 
