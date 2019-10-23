@@ -29,8 +29,8 @@ function start(n, m, p){
     const res = new Array(workers_number);
     for(let i=0; i<workers_number; i++){
         res[i] = false;
-        data.linie_start = Math.trunc(i * n / workers_number);
-        data.linie_stop = Math.trunc((i + 1) * n / workers_number);
+        data.start_line = Math.trunc(i * n / workers_number);
+        data.stop_line = Math.trunc((i + 1) * n / workers_number);
         const worker = new Worker("worker2.js");
         worker.id = i;
         worker.onmessage = e => {
